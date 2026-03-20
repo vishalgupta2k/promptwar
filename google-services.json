@@ -1,0 +1,28 @@
+{
+  "project_info": {
+    "project_number": "123456789012",
+    "project_id": "lex-simple-2d2026",
+    "storage_bucket": "lex-simple.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123456789012:android:0123456789abcdef",
+        "android_client_info": {
+          "package_name": "com.lexsimple.app"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyDummyKey"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

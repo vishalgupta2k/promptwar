@@ -10,8 +10,8 @@ describe('UploadZone', () => {
     render(<UploadZone onFileUpload={mockUpload} onTextPaste={mockPaste} />)
     
     // Check if main UI elements exist
-    expect(screen.getByText(/Upload Document/i)).toBeInTheDocument()
-    expect(screen.getByText(/Drag & drop your legal document here/i)).toBeInTheDocument()
-    expect(screen.getByText(/Or paste your text below/i)).toBeInTheDocument()
+    expect(screen.getByText(/Drop your contract here/i)).toBeInTheDocument()
+    expect(screen.getByText(/PDF, DOCX, TXT — up to 50 pages/i)).toBeInTheDocument()
+    expect(screen.getByText(/Paste contract text/i)).toBeInTheDocument()
   })
 })
