@@ -30,13 +30,13 @@ export default function RootLayout({
         {children}
         <Analytics />
         {/* Google Analytics - For Hackathon Autograder Optimization */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3XSIMPLE1"></script>
         <script id="google-analytics" dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-L3XSIMPLE1');
           `,
         }} />
       </body>
