@@ -1,0 +1,39 @@
+"""Simplifier agent — rewrites legal text at 9th-grade reading level."""
+
+from agents.config.models import call_gemini, GEMINI_FLASH
+from agents.simplifier.prompts import SYSTEM_PROMPT
+from agents.orchestrator.state import LexSimpleState
+import json
+
+
+def run(state: LexSimpleState) -> dict:
+    """Simplify each chunk into plain English."""
+    chunks = state.get("chunks", [])
+    simplified: list[dict] = []
+
+    # Limit to first 2 chunks for faster processing (demo mode)
+    for chunk in chunks[:2]:
+        response = call_gemini(
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": f"Simplify this legal clause:\n\n{chunk['text']}"},
+            ],
+            model=GEMINI_FLASH,
+            json_mode=True,
+        )
+        content = response.choices[0].message.content or "{}"
+        try:
+            data = json.loads(content)
+            simplified.append({
+                "section_title": data.get("section_title", f"Section {chunk.get('chunk_id', '?')}"),
+                "original": chunk["text"],
+                "simplified": data.get("simplified", content),
+            })
+        except json.JSONDecodeError:
+            simplified.append({
+                "section_title": f"Section {chunk.get('chunk_id', '?')}",
+                "original": chunk["text"],
+                "simplified": content,
+            })
+
+    return {"simplified": simplified}
