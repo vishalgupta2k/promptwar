@@ -47,6 +47,7 @@ export function Sidebar({ activeNav, onNavChange, hasAnalysis }: SidebarProps) {
                 <button
                   onClick={() => !isDisabled && onNavChange(item.id)}
                   disabled={isDisabled}
+                  aria-label={`Navigate to ${item.label}`}
                   className={cn(
                     'w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all',
                     isActive && 'text-white font-semibold border-l-2 border-[#4285F4] bg-transparent pl-[10px]',

@@ -249,6 +249,7 @@ export function ChatPanel({
               type="submit" 
               size="sm" 
               disabled={!input.trim() || isAnalyzing}
+              aria-label="Send message"
               className="gap-1.5 bg-[#4285F4] hover:bg-[#5a9cf6] text-black font-bold rounded-lg"
             >
               Send
