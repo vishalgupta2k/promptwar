@@ -37,16 +37,11 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# ── CORS — allow Vercel frontend ──────────────────────────────────────
+# ── CORS — allow Cloud Run frontend ───────────────────────────────────
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "https://lexsimple.vercel.app",
-        "https://legal-lens-ssii.vercel.app",
-        "https://*.vercel.app",
-    ],
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )

@@ -1,0 +1,13 @@
+.git
+.gitignore
+.venv
+venv
+__pycache__
+*.pyc
+.env
+frontend/
+node_modules/
+tsc_errors.txt
+.agents/
+AGENTS.md
+README_DEPLOYMENT.md
