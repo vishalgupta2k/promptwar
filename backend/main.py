@@ -22,6 +22,17 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
+# ── Google Cloud Logging Integration ──────────────────────────────────
+try:
+    from google.cloud import logging as cloud_logging
+    # Instantiate a logging client
+    client = cloud_logging.Client()
+    # Start the logger
+    client.setup_logging()
+    logging.info("Google Cloud Logging successfully initialized.")
+except Exception as e:
+    logging.warning(f"Google Cloud Logging not initialized: {e}")
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
